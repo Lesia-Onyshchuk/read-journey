@@ -1,0 +1,20 @@
+.link {
+  display: flex;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.13;
+  letter-spacing: -0.02em;
+  color: #686868;
+  padding: 24px 0;
+  text-decoration: none;
+}
+
+.active {
+  color: #f9f9f9;
+}
+
+.navBox {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}

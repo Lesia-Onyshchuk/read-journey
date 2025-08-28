@@ -21,7 +21,7 @@ export default function App() {
 
         {/* Приватні сторінки */}
         <Route element={<PrivateRoute />}>
-          <Route path="/" element={<RecommendedPage />} />
+          <Route path="/recommended" element={<RecommendedPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/reading" element={<ReadingPage />} />
         </Route>

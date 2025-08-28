@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://readjourney.b.goit.study",
+  baseURL: "https://readjourney.b.goit.study/api",
 });
 
 api.interceptors.request.use((config) => {

@@ -3,10 +3,11 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../public/assets/images/logo.png";
 import css from "./RegisterForm.module.css";
 import { useId } from "react";
+// import { setUser } from "../../redux/auth/slice.js";
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -21,6 +22,8 @@ const schema = Yup.object().shape({
 export default function RegisterForm() {
   const dispatch = useDispatch();
   const { loading } = useSelector((s) => s.auth);
+
+  const navigate = useNavigate();
 
   const nameId = useId();
   const emailId = useId();
@@ -39,6 +42,8 @@ export default function RegisterForm() {
     } else {
       toast.success("Registration successful!");
       resetForm();
+      // dispatch(setUser({ name: values.name }));
+      navigate("/recommended");
     }
     setSubmitting(false);
   };
@@ -55,7 +60,7 @@ export default function RegisterForm() {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form className="flex flex-col gap-4 max-w-sm mx-auto">
+          <Form>
             <div className={css.inputBox}>
               <label htmlFor={nameId} className={css.label}>
                 Name:
