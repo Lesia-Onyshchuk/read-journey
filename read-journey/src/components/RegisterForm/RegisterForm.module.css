@@ -1,0 +1,133 @@
+.registerBox {
+  border-radius: 30px;
+  width: 600px;
+  background-color: #1f1f1f;
+  padding: 40px 64px;
+}
+
+.logo {
+  width: 182px;
+  margin-bottom: 107px;
+}
+
+.title {
+  font-size: 64px;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  color: #f9f9f9;
+  /* width: 420px; */
+  margin-bottom: 40px;
+}
+
+.span {
+  color: rgba(227, 227, 227, 0.5);
+}
+
+.inputName {
+  width: 472px;
+  border-radius: 12px;
+  padding: 16px 14px 16px 65px;
+  background-color: #262626;
+  outline: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  /* text-align: center; */
+  color: #f9f9f9;
+  border: none;
+  /* margin-bottom: 14px; */
+}
+
+.inputEmail {
+  width: 472px;
+  border-radius: 12px;
+  padding: 16px 14px 16px 53px;
+  background-color: #262626;
+  outline: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  /* text-align: center; */
+  color: #f9f9f9;
+  border: none;
+  /* margin-bottom: 14px; */
+}
+
+.inputPwd {
+  width: 472px;
+  border-radius: 12px;
+  padding: 16px 14px 16px 86px;
+  background-color: #262626;
+  outline: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  /* text-align: center; */
+  color: #f9f9f9;
+  border: none;
+  /* margin-bottom: 14px; */
+}
+
+.label {
+  position: absolute;
+  z-index: 100;
+  left: 14px;
+  top: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #686868;
+}
+
+.inputBox {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.btnBox {
+  margin-top: 82px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.error {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: #e90516;
+  /* border: 1px solid #e90516; */
+}
+
+.registerBtn {
+  border-radius: 30px;
+  /* padding: 16px 54px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 225px;
+  height: 52px;
+  background-color: #f9f9f9;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #1f1f1f;
+}
+
+.loginLink {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  /* text-decoration: underline; */
+  text-decoration-skip-ink: none;
+  color: #686868;
+}

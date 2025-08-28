@@ -5,7 +5,7 @@ export default function PrivateRoute() {
   const { token } = useSelector((s) => s.auth);
 
   if (!token) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/register" replace />;
   }
 
   return <Outlet />;

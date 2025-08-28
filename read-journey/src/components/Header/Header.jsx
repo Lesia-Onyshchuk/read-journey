@@ -17,7 +17,7 @@ export default function Header() {
       toast.error(res.payload);
     } else {
       toast.success("Logged out!");
-      navigate("/");
+      navigate("/login");
     }
   };
 

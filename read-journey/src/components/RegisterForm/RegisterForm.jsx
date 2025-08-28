@@ -1,8 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../redux/auth/slice.js";
+import { register } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
+import logo from "../../../public/assets/images/logo.png";
+import css from "./RegisterForm.module.css";
+import { useId } from "react";
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -18,6 +22,10 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
   const { loading } = useSelector((s) => s.auth);
 
+  const nameId = useId();
+  const emailId = useId();
+  const pwdId = useId();
+
   const initialValues = {
     name: "",
     email: "",
@@ -25,7 +33,7 @@ export default function RegisterForm() {
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const res = await dispatch(registerUser(values));
+    const res = await dispatch(register(values));
     if (res.error) {
       toast.error(res.payload);
     } else {
@@ -36,64 +44,77 @@ export default function RegisterForm() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form className="flex flex-col gap-4 max-w-sm mx-auto">
-          <div>
-            <Field
-              type="text"
-              name="name"
-              placeholder="Name"
-              className="w-full border px-3 py-2 rounded"
-            />
-            <ErrorMessage
-              name="name"
-              component="div"
-              className="text-red-500 text-sm"
-            />
-          </div>
-
-          <div>
-            <Field
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="w-full border px-3 py-2 rounded"
-            />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="text-red-500 text-sm"
-            />
-          </div>
-
-          <div>
-            <Field
-              type="password"
-              name="password"
-              placeholder="Password"
-              className="w-full border px-3 py-2 rounded"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="text-red-500 text-sm"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting || loading}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50"
-          >
-            {loading ? "Registering..." : "Register"}
-          </button>
-        </Form>
-      )}
-    </Formik>
+    <div className={css.registerBox}>
+      <img src={logo} alt="READ JOURNEY" className={css.logo} />
+      <h1 className={css.title}>
+        Expand your mind, reading <span className={css.span}>a book</span>
+      </h1>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form className="flex flex-col gap-4 max-w-sm mx-auto">
+            <div className={css.inputBox}>
+              <label htmlFor={nameId} className={css.label}>
+                Name:
+              </label>
+              <Field
+                type="text"
+                name="name"
+                className={css.inputName}
+                id={nameId}
+              />
+              <ErrorMessage name="name" component="div" className={css.error} />
+            </div>
+            <div className={css.inputBox}>
+              <label htmlFor={emailId} className={css.label}>
+                Mail:
+              </label>
+              <Field
+                type="email"
+                name="email"
+                className={css.inputEmail}
+                id={emailId}
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className={css.error}
+              />
+            </div>
+            <div className={css.inputBox}>
+              <label htmlFor={pwdId} className={css.label}>
+                Password:
+              </label>
+              <Field
+                type="password"
+                name="password"
+                className={css.inputPwd}
+                id={pwdId}
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className={css.error}
+              />
+            </div>
+            <div className={css.btnBox}>
+              <button
+                type="submit"
+                disabled={isSubmitting || loading}
+                className={css.registerBtn}
+              >
+                {loading ? "Registering..." : "Registration"}
+              </button>
+              <NavLink to="/login" className={css.loginLink}>
+                Already have an account?
+              </NavLink>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 }
